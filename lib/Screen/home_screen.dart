@@ -114,17 +114,21 @@ class BlogHomeScreenState extends State<BlogHomeScreen> {
                       ),
                       onTap: () async {
                         final postId = post['id'];
-                        final comments = await blogModel.fetchCommentsForPost(postId);
+                        final comments = await blogModel.fetchCommentsForPost(
+                            postId);
                         dynamic userToSend = blogModel.getUserByPost(post);
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ViewBlog(
-                          user: userToSend,
-                          post: post,
-                          comments: comments,
-                        )));
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) =>
+                                ViewBlog(
+                                  user: userToSend,
+                                  post: post,
+                                  comments: comments,
+                                )));
                       },
                     ),
+
                   );
-                },
+                }
               ),
             ),
           ),
